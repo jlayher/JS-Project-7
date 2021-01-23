@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-//Import API key
-import apiKey from './config.js';
 
 //import Api components
 //import HandleRoutes from './HandleRoutes';
 import Nav from './components/Nav';
-import PhotoContainer from './components/PhotoContainer.js';
 import Search from './components/Search.js';
-
-//import axios for fetching data
-import axios from 'axios';  
+import Fetch from './components/Fetch';
 
 //attempt at using react-router-dom 
 import {
@@ -19,11 +14,42 @@ import {
   Redirect
 } from 'react-router-dom';
 
-
-
 class App extends Component {
 
-  //moved to photoContainer
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+          
+            <Search />
+            <Nav />
+        
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/search/dogs"/>} />
+            <Route exact path="/search" render={() => <Redirect to="/search/dogs"/>} />
+            <Route exact path="/search/:query" component={Fetch}/>
+
+          </Switch>
+
+          
+        </div>
+        </BrowserRouter>
+    );
+  }
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+//all of this was originally in the App component, before the render call
+ //moved to photoContainer
   // constructor() {
   //   super();
   //   this.state = {
@@ -62,16 +88,3 @@ class App extends Component {
   //       console.log("Error Fetching Data -_-")
   //     });
   // }
-
-  render() {
-    return (
-      <div className="container">
-        <Search />
-        <Nav />
-        <PhotoContainer /> {/*data={this.state.photos}*/}
-      </div>
-    );
-  }
-}
-
-export default App;
