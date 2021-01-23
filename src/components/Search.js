@@ -13,7 +13,7 @@ class Search extends Component {
         e.preventDefault();
 
         let searchInput = this.query.value;
-
+        
         this.setState({searchInput})
         e.currentTarget.reset();
     }

@@ -33,7 +33,7 @@ class App extends Component {
             <Route exact path="/search/" render={() => <Redirect to="/search/dogs"/>} /> 
             <Route exact path="/search/:query" component={Fetch}/>
 
-            <Route component={FourOhFour} />
+            <Route component={FourOhFour} render={() => <Redirect to="/search"/>}/>
           </Switch>
 
           
