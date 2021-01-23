@@ -9,7 +9,8 @@ class Fetch extends Component {
 
     state = {
         photos: [],
-        query: this.props.match.params.query
+        query: this.props.match.params.query,
+        loading: true
     }
 
     componentDidMount() {
@@ -22,16 +23,23 @@ class Fetch extends Component {
         let query = this.props.match.params.query;
         if(prevQuery !== query) {
             this.fetchData(query);
+            this.setState({
+                query: query
+            })
         }
     }
 
     fetchData = (query) =>{
+        this.setState({
+            loading: true
+        })
         let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
         axios.get(url)
           .then(response => {
             const photosReturned = response.data.photos.photo;
             this.setState({
-              photos: photosReturned
+              photos: photosReturned,
+              loading: false
             })
             console.log(photosReturned)
           })
@@ -46,6 +54,7 @@ class Fetch extends Component {
             <PhotoContainer 
                 query = {this.state.query}
                 photoArray= {this.state.photos}
+                loading= {this.state.loading}
             />
         )
     }

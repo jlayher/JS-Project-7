@@ -1,7 +1,7 @@
 //apps navigation links
 
 import React from 'react';
-import {NavLink, Route, Redirect} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Nav = (props) => {
     return (
