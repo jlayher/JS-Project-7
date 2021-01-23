@@ -17,7 +17,13 @@ class Fetch extends Component {
     }
 
     //add in a componentDidUpdate function for previous Props
-
+    componentDidUpdate(prevProps) {
+        let prevQuery = prevProps.match.params.query;
+        let query = this.props.match.params.query;
+        if(prevQuery !== query) {
+            this.fetchData(query);
+        }
+    }
 
     fetchData = (query) =>{
         let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
@@ -36,9 +42,7 @@ class Fetch extends Component {
 
 
     render(){
-        {console.log(this.state.photos)}
         return(
-            
             <PhotoContainer 
                 query = {this.state.query}
                 photoArray= {this.state.photos}

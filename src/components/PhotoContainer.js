@@ -7,11 +7,11 @@ import NotFound from './NotFound';
 class PhotoContainer extends Component {
     render(){
       
-      const photoArray = this.props.photos;
+      const photoArray = this.props.photoArray;
       let photos;
 
-      if (photoArray.length > 0) {
-        photos = photoArray.map( photo => {
+      if (photoArray && photoArray.length > 0) {
+        photos = photoArray.map( photo => 
           <Photo
             server={photo.server}
             id={photo.id}
@@ -19,7 +19,7 @@ class PhotoContainer extends Component {
             title={photo.title}
             key={photo.id.toString()}>
           </Photo>
-        })
+        )
       } else {
         photos = <NotFound />
       }

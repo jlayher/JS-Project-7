@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      //<BrowserRouter>
         <div className="container">
           
             <Search />
@@ -33,7 +33,7 @@ class App extends Component {
 
           
         </div>
-        </BrowserRouter>
+        //</BrowserRouter>
     );
   }
 }

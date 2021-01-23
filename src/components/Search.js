@@ -6,14 +6,18 @@ class Search extends Component {
     handleSubmit = (e) => {
         //prevent regular behavior of submitting data to a server
         e.preventDefault();
-        let path = `/search/${this.query.value}`;
-        e.currentTarget.reset();
+        let searchInput = this.query.value;
+        let path = `/${searchInput}`;
+        console.log(this.props.history);
         this.props.history.push(path);
+        e.currentTarget.reset();
+
     }
 
     render(){
         return(
-            <form className="search-form">
+            <form className="search-form"
+                onChange= {this.handleSubmit}>
                 <input 
                     type="search" 
                     name="search" 
