@@ -20,8 +20,7 @@ class Fetch extends Component {
 
 
     fetchData = (query) =>{
-        const key = apiKey;
-        let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
+        let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
         axios.get(url)
           .then(response => {
             const photosReturned = response.data.photos.photo;
