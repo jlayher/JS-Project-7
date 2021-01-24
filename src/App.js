@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-//import Api components
-//import HandleRoutes from './HandleRoutes';
+//Import Components
 import Nav from './components/Nav';
 import Search from './components/Search.js';
 import Fetch from './components/Fetch';
 import FourOhFour from './components/FourOhFour';
 
-//attempt at using react-router-dom 
+//Set up React Router 
 import {
   BrowserRouter,
   Route,
@@ -15,7 +14,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-
+// App Component Renders 
 class App extends Component {
 
   render() {
@@ -33,7 +32,7 @@ class App extends Component {
             <Route exact path="/search/" render={() => <Redirect to="/search/dogs"/>} /> 
             <Route exact path="/search/:query" component={Fetch}/>
 
-            <Route component={FourOhFour} render={() => <Redirect to="/search"/>}/>
+            <Route component={FourOhFour} render={() => <Redirect to="/search/FourOhFour"/>}/>
           </Switch>
 
           
