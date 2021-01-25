@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Redirect, Route} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
+
 
 class Search extends Component {
 
@@ -37,7 +38,7 @@ class Search extends Component {
                         </svg>
                     </button>
                 </form>
-                {this.state.searchInput && <Redirect to={this.state.searchInput} />}
+                {this.state.searchInput && <Redirect to={`/search/${this.state.searchInput}`} />}
             </div>
         );
     }

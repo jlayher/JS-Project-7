@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+//Import API Key From Config File
 import apiKey from '../config.js';
 
+//Import Components 
 import PhotoContainer from './PhotoContainer';
 
 class Fetch extends Component {
@@ -17,7 +19,7 @@ class Fetch extends Component {
         this.fetchData(this.props.match.params.query);
     }
 
-    //add in a componentDidUpdate function for previous Props
+    //add in a componentDidUpdate method for previous Props
     componentDidUpdate(prevProps) {
         let prevQuery = prevProps.match.params.query;
         let query = this.props.match.params.query;
@@ -29,6 +31,7 @@ class Fetch extends Component {
         }
     }
 
+    //fetch data function.  Takes in query param and api key, to create the url for the axios request
     fetchData = (query) =>{
         this.setState({
             loading: true

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+
+//Import Components
 import Photo from './Photo';
 import NotFound from './NotFound';
 
 
-
+//PhotoContainer loops over the returned array from the fetch request and renders Photo components for all the returned items.  
 class PhotoContainer extends Component {
     render(){
       

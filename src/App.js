@@ -14,7 +14,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-// App Component Renders 
+// App Component Renders the app's components, and handles redirects
 class App extends Component {
 
   render() {
