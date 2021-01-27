@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 
 class Search extends Component {
@@ -13,10 +13,11 @@ class Search extends Component {
         //prevent regular behavior of submitting data to a server
         e.preventDefault();
 
-        let searchInput = this.query.value;
+        let path = `/search/${this.query.value}`;
         
-        this.setState({searchInput})
+        //this.setState({path})
         e.currentTarget.reset();
+        this.props.history.push(path)
     }
 
     render(){
@@ -38,10 +39,10 @@ class Search extends Component {
                         </svg>
                     </button>
                 </form>
-                {this.state.searchInput && <Redirect to={`/search/${this.state.searchInput}`} />}
+                {this.state.path}
             </div>
         );
     }
 }
 
-export default Search;
+export default withRouter(Search);
