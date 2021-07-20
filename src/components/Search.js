@@ -12,14 +12,10 @@ class Search extends Component {
     handleSubmit = (e) => {
         //prevent regular behavior of submitting data to a server
         e.preventDefault();
-
         let path = `/search/${this.query.value}`;
-        
-        //this.setState({path})
         e.currentTarget.reset();
         this.props.history.push(path)
     }
-
     render(){
         return(
             <div>

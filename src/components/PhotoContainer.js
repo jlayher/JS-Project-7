@@ -5,13 +5,12 @@ import Photo from './Photo';
 import NotFound from './NotFound';
 
 
-//PhotoContainer loops over the returned array from the fetch request and renders Photo components for all the returned items.  
+/* PhotoContainer loops over the returned array from the fetch request 
+and renders Photo components for all the returned items */  
 class PhotoContainer extends Component {
     render(){
-      
       const photoArray = this.props.photoArray;
       let photos;
-
       if (photoArray && photoArray.length > 0) {
         photos = photoArray.map( photo => 
           <Photo
@@ -25,7 +24,6 @@ class PhotoContainer extends Component {
       } else {
         photos = <NotFound />
       }
-
         return(
             <div className="photo-container">
                 <h2>{this.props.query}</h2>
