@@ -7,4 +7,6 @@ To run this application, you will need to obtain your own Flickr API Key, and in
 const apiKey = 'YourAPIkeyHere!';
 export default apiKey;
 
+You can obtain your own Flickr API key by visiting https://www.flickr.com/services/api/misc.api_keys.html
+
 You can then type npm start in the console to run the program on PORT 3000, and view the application in your web browser by visitng http://localhost:3000  
